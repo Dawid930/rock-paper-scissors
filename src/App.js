@@ -52,7 +52,7 @@ function ActionIcon({action, ...props}) {
   return (<Icon {...props}/>)
 }
 
-function Player ({name = 'You', score = 0, action='rock'}) {
+function Player ({name = 'You', score = 0, action}) {
   return (
     <div className='player'>
       <div className='score'>{`${name}: ${score}`}</div>
@@ -63,7 +63,7 @@ function Player ({name = 'You', score = 0, action='rock'}) {
   );
 }
 
-function ActionButton({action = 'rock', onActionSelected}) {
+function ActionButton({action, onActionSelected}) {
   return(
     <button onClick={() => onActionSelected(action)}>
       <ActionIcon action={action}/>
@@ -71,15 +71,30 @@ function ActionButton({action = 'rock', onActionSelected}) {
   )
 }
 
-
 function App() {
-
+  
   const [playerAction, setPlayerAction] = useState("");
   const [computerAction, setComputerAction] = useState("");
-  const [winner, setWinner] = useState(0)
-
+  const [winner, setWinner] = useState(-2)
+  
   const [playerScore, setPlayerScore] = useState(0)
   const [comuterScore, setComputerScore] = useState(0)
+
+  function ResetButton(){
+  
+
+  
+    return(
+      <button onClick={() => {
+      setPlayerAction("");
+      setComputerAction("");
+      setWinner(-2);
+      setPlayerScore(0);
+      setComputerScore(0);
+    }} >Reset the game</button>
+    )
+  
+  }
 
   const onActionSelected = (selectedAction) => {
     const newComputerAction = randomAction()
@@ -96,8 +111,9 @@ function App() {
     }
   }
 
-  function ShowWinner({winner = 0}) {
+  function ShowWinner({winner}) {
     const text = {
+      '-2': "Let's begin!",
       '-1': 'You win!',
       0: "It's a Tie!",
       1: 'You Loose!'
@@ -108,6 +124,7 @@ function App() {
     )
   }
 
+  
   return (
     <div className='center'>
       <h1>Rock Paper Scissors game!</h1>
@@ -122,6 +139,7 @@ function App() {
           <ActionButton action='scissors' onActionSelected={onActionSelected}/>
         </div>
         <ShowWinner winner={winner}/>
+        <ResetButton resetOnClick={ResetButton}/>
       </div>
     </div>
   );
