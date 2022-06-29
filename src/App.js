@@ -81,9 +81,6 @@ function App() {
   const [comuterScore, setComputerScore] = useState(0)
 
   function ResetButton(){
-  
-
-  
     return(
       <button onClick={() => {
       setPlayerAction("");
@@ -93,7 +90,6 @@ function App() {
       setComputerScore(0);
     }} >Reset the game</button>
     )
-  
   }
 
   const onActionSelected = (selectedAction) => {
@@ -126,10 +122,10 @@ function App() {
 
   
   return (
-    <div className='center'>
+    <div className='main'>
       <h1>Rock Paper Scissors game!</h1>
-      <div>
-        <div className='container'>
+      <div className='container'>
+        <div className='game'>
           <Player name='You' score={playerScore} action={playerAction}/>
           <Player name='Computer' score={comuterScore} action={computerAction}/>
         </div>
@@ -138,8 +134,10 @@ function App() {
           <ActionButton action='paper' onActionSelected={onActionSelected}/>
           <ActionButton action='scissors' onActionSelected={onActionSelected}/>
         </div>
-        <ShowWinner winner={winner}/>
-        <ResetButton resetOnClick={ResetButton}/>
+        <div className='bottom'>
+          <ShowWinner winner={winner}/>
+          <ResetButton resetOnClick={ResetButton}/>
+        </div>
       </div>
     </div>
   );

@@ -35,13 +35,15 @@ border-radius: 0;
 
 /* END OF CSS RESET */
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
 body {
   margin: auto;
   width: 100%;
   height: 100vh;
   background-color: #515151;
   font-family: 'Montserrat', sans-serif;
-
 }
 
 #root {
@@ -50,35 +52,76 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
+  line-height: 60px;
 }
 
-
-.center {
-
+.main h1 {
+  background-color: #c6c6c6;
+  border-radius: 15px;
+  padding: 15px;
+  font-weight: 700;
 }
 
-.container{
+.game{
   display: flex;
   margin: auto;
   justify-content: space-evenly;
+}
+
+.score{
+  color: #ffffff;
 }
 
 .buttons{
   display: flex;
   margin: auto;
   justify-content: space-evenly;
+  padding: 15px;
 }
 
 .action{
   background-color: #c6c6c6;
   border-radius: 30px;
+  height: 100px;
+  width: 100px;
 }
 
-button {
+.buttons button {
   background-color: #c6c6c6;
   border-radius: 30px;
 }
 
+.buttons button:hover {
+  background-color: #e3e3e3;
+}
+
+.bottom{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  row-gap: 20px;
+}
+
+.bottom h2 {
+  background-color: #c6c6c6;
+  border-radius: 15px;
+  padding: 0px 15px 0px 15px;
+}
+
+.bottom button{
+  background-color: #c6c6c6;
+  border-radius: 15px;
+  padding: 15px;
+  font-weight: 400;
+}
+
+.bottom button:hover{
+  color: #ffffff;
+  background-color: #313131;
+}
 
 .rock{
   width: 100px;
