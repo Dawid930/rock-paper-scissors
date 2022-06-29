@@ -3,6 +3,7 @@ import './App.css';
 import rock from './images/rock.png';
 import scissors from './images/scissors.png';
 import paper from './images/paper.png';
+import Modal from './Modal';
 
 const rockImg = () => {
   return( <img src={rock} alt="rock" className='rock'/>)
@@ -80,6 +81,8 @@ function App() {
   const [playerScore, setPlayerScore] = useState(0)
   const [comuterScore, setComputerScore] = useState(0)
 
+  const [popup, setPopup] = useState(false)
+
   function ResetButton(){
     return(
       <button onClick={() => {
@@ -137,6 +140,14 @@ function App() {
         <div className='bottom'>
           <ShowWinner winner={winner}/>
           <ResetButton resetOnClick={ResetButton}/>
+          <button 
+            onClick={() => setPopup(true)} 
+            className='modalButton'>
+              Check the rules
+            </button>
+          <Modal 
+            open={popup} 
+            onClose={() => setPopup(false)} />
         </div>
       </div>
     </div>
