@@ -56,7 +56,7 @@ function Player ({name = 'You', score = 0, action}) {
   return (
     <div className='player'>
       <div className='score'>{`${name}: ${score}`}</div>
-      <div className='acion'>
+      <div className='action'>
         { action && <ActionIcon action={action}/>}
       </div>
     </div>
@@ -133,7 +133,7 @@ function App() {
           <Player name='You' score={playerScore} action={playerAction}/>
           <Player name='Computer' score={comuterScore} action={computerAction}/>
         </div>
-        <div>
+        <div className='buttons'>
           <ActionButton action='rock' onActionSelected={onActionSelected}/>
           <ActionButton action='paper' onActionSelected={onActionSelected}/>
           <ActionButton action='scissors' onActionSelected={onActionSelected}/>
